@@ -47,7 +47,7 @@ echo -e "autossl\t\t\t->\tGerar certificado ssl para conta"
 echo -e "restrict_mailacct\t->\tDesabilitar conta de e-mail Login/Envio/Recebimento"
 echo -e "unrestrict_mailacct\t->\tRemover bloqueio de conta de e-mail Login/Envio/Recebimento"
 echo -e "phpinfo\t\t\t->\tAdiciona o phpinfo no diretório atual"
-
+echo -e "enableshell\t\t\t->\tLibera acesso ssh ao usuário"
 echo -e "\nEnviar sugestoes para lu.maria06@gmail.com\n" ;}
 
 
