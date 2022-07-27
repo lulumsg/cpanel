@@ -168,6 +168,13 @@ whmapi1 unsuspend_outgoing_email user=$user >>/dev/null
 echo -e "The cPanel account \033[1;33m$user\033[0m have outgoing email unsuspended ";
 }
 
+function enableshell() {
+user=${1}
+acct_verify
+whmapi1 modifyacct user=$user shell=true >>/dev/null 
+echo -e "The cPanel account \033[1;33m$user\033[0m have access shell enabled ";
+}
+
 function restrict_mailacct(){
 user=${1}
 domain=$(echo $user | cut -d@ -f2)
