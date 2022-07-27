@@ -61,6 +61,33 @@ alias dus="cat /etc/domainusers | grep --color=auto";
 alias tus="cat /etc/trueuserowners | grep --color=auto";
 alias c="chmod 000"; 
 
+function domain_verify(){
+verifydomain=$(grep -w $domain /etc/trueuserdomains | cut -d: -f1 | head -1)
+
+if [ "$verifydomain" != "$domain" ]; then
+  echo -e "The domain \033[1;33m$domain\033[0m does not exist: \033[0;31m[ERROR]\033[0m"
+  kill -INT $$;
+fi;
+}
+
+function mail_verify(){
+mailuser=$(echo $user | cut -d@ -f1 | head -1)
+
+if [[ ! -d "/home/$account/mail/$domain/$mailuser" ]]; then
+  echo -e "The mail account \033[1;33m$user\033[0m does not exist: \033[0;31m[ERROR]\033[0m"
+  kill -INT $$;
+fi;
+}
+
+function acct_verify(){
+verifyuser=$(grep -w $user /etc/trueuserdomains | cut -d: -f2 | head -1 | sed 's/ //g' )
+
+if [ "$verifyuser" != "$user" ]; then
+  echo -e "The user \033[1;33m$user\033[0m does not exist: \033[0;31m[ERROR]\033[0m"
+  kill -INT $$;
+fi;
+}
+
 # Funções
 function scan() { clamdscan --stdout | grep FOUND | cut -d: -f1 | xargs ls -l ;}
 
