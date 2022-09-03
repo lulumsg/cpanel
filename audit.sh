@@ -213,7 +213,7 @@ uapi --user=$account Email suspend_login email=$user >> /dev/null
 uapi --user=$account Email suspend_incoming email=$user >> /dev/null
 uapi --user=$account Email suspend_outgoing email=$user >> /dev/null
 
-echo -e "The mail account \033[1;33m$user\033[0m are suspended"
+echo -e "The mail account \033[1;33m$user\033[0m was suspended"
 }
 
 function unrestrict_mailacct(){
