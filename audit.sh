@@ -156,7 +156,7 @@ NOW=$(date +"%m-%d-%y")
 user=${1}
 acct_verify
 
-echo -e "<Directory \"/home/$user/public_html\">\n  AllowOverride none\n  order deny,allow\n  errordocument 403 \"Temporarily closed for maintenance.\n  #\" ~$agent on $NOW \n</Directory>\n\n" >> /usr/local/apache/conf/includes/pre_virtualhost_global.conf;
+echo -e "<Directory \"/home/$user/public_html\">\n  AllowOverride none\n  order deny,allow\n deny from all\n  errordocument 403 \"Temporarily closed for maintenance.\n  #\" ~$agent on $NOW \n</Directory>\n\n" >> /usr/local/apache/conf/includes/pre_virtualhost_global.conf;
 
 "$SCRIPT_PATH";}
 
